@@ -1,0 +1,16 @@
+source_table,target_table,source_key,target_key,cardinality
+geography,customers,zip,zip,1:n
+geography,orders,zip,zip,1:n
+customers,orders,customer_id,customer_id,1:n
+orders,order_items,order_id,order_id,1:n
+products,order_items,product_id,product_id,1:n
+promotions,order_items,promo_id,promo_id,1:n (nullable)
+promotions,order_items,promo_id,promo_id_2,1:n (nullable)
+orders,payments,order_id,order_id,1:1
+orders,shipments,order_id,order_id,1:0/1
+orders,returns,order_id,order_id,1:n
+products,returns,product_id,product_id,1:n
+orders,reviews,order_id,order_id,1:n
+products,reviews,product_id,product_id,1:n
+customers,reviews,customer_id,customer_id,1:n
+products,inventory,product_id,product_id,1:n

@@ -1,0 +1,17 @@
+table,check_type,subset,duplicate_count,duplicate_pct
+order_items,business_key_duplicate,"order_id, product_id",16,0.002239
+customers,full_row_duplicate,FULL_ROW,0,0.0
+geography,full_row_duplicate,FULL_ROW,0,0.0
+inventory,full_row_duplicate,FULL_ROW,0,0.0
+inventory,business_key_duplicate,"snapshot_date, product_id",0,0.0
+order_items,full_row_duplicate,FULL_ROW,0,0.0
+orders,full_row_duplicate,FULL_ROW,0,0.0
+payments,full_row_duplicate,FULL_ROW,0,0.0
+products,full_row_duplicate,FULL_ROW,0,0.0
+promotions,full_row_duplicate,FULL_ROW,0,0.0
+returns,full_row_duplicate,FULL_ROW,0,0.0
+reviews,full_row_duplicate,FULL_ROW,0,0.0
+sales,full_row_duplicate,FULL_ROW,0,0.0
+sample_submission,full_row_duplicate,FULL_ROW,0,0.0
+shipments,full_row_duplicate,FULL_ROW,0,0.0
+web_traffic,full_row_duplicate,FULL_ROW,0,0.0

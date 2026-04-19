@@ -1,0 +1,15 @@
+rule_name,violations,status,details
+products_cogs_less_than_price,0,PASS,Expected cogs < price for all products
+promotions_start_before_end,0,PASS,Expected promotions.start_date <= promotions.end_date
+shipments_ship_before_delivery,0,PASS,Expected ship_date <= delivery_date
+reviews_rating_between_1_and_5,0,PASS,Expected rating between 1 and 5
+inventory_stockout_flag_binary,0,PASS,"Expected stockout_flag in {0,1}"
+inventory_overstock_flag_binary,0,PASS,"Expected overstock_flag in {0,1}"
+inventory_reorder_flag_binary,0,PASS,"Expected reorder_flag in {0,1}"
+orders_payments_payment_method_consistency,0,PASS,Expected payment_method in orders and payments to match
+shipments_order_status_valid,0,PASS,Expected shipments only for shipped/delivered/returned orders
+returns_order_status_returned,0,PASS,Expected returns to belong to orders with status='returned'
+reviews_order_status_delivered,0,PASS,Expected reviews to belong to delivered orders
+payments_installments_positive_integer,0,PASS,Expected installments to be positive integers
+web_traffic_bounce_rate_range_observation,0,INFO,"Observed bounce_rate range: min=0.0032, max=0.0058"
+inventory_fill_rate_range_observation,0,INFO,"Observed fill_rate range: min=0.0667, max=1.0000"

@@ -1,0 +1,97 @@
+table,n_rows,n_cols,column,dtype,null_count,null_pct,nunique,is_unique_non_null,sample_values
+customers,121930,7,acquisition_channel,str,0,0.0,6,False,social_media | email_campaign | organic_search
+customers,121930,7,age_group,str,0,0.0,5,False,35-44 | 45-54 | 18-24
+customers,121930,7,city,str,0,0.0,42,False,Hai Phong | Hai Phong | Hai Phong
+customers,121930,7,customer_id,int64,0,0.0,121930,True,1 | 2 | 3
+customers,121930,7,gender,str,0,0.0,3,False,Female | Female | Female
+customers,121930,7,signup_date,datetime64[us],0,0.0,3941,False,2021-12-30 | 2013-12-27 | 2018-07-24
+customers,121930,7,zip,int64,0,0.0,31491,False,15201 | 15201 | 15201
+geography,39948,4,city,str,0,0.0,42,False,Hai Phong | Phu Ly | Viet Tri
+geography,39948,4,district,str,0,0.0,39,False,District #13 | District #13 | District #13
+geography,39948,4,region,str,0,0.0,3,False,East | East | East
+geography,39948,4,zip,int64,0,0.0,39948,True,15201 | 15202 | 15203
+inventory,60247,17,category,str,0,0.0,4,False,Casual | Casual | Casual
+inventory,60247,17,days_of_supply,float64,0,0.0,9289,False,90.0 | 90.0 | 90.0
+inventory,60247,17,fill_rate,float64,0,0.0,29,False,0.9333 | 0.9667 | 0.9667
+inventory,60247,17,month,int64,0,0.0,12,False,10 | 11 | 12
+inventory,60247,17,overstock_flag,int64,0,0.0,2,False,0 | 0 | 0
+inventory,60247,17,product_id,int64,0,0.0,1624,False,1 | 1 | 1
+inventory,60247,17,product_name,str,0,0.0,1465,False,DragonWear MA-01 | DragonWear MA-01 | DragonWear MA-01
+inventory,60247,17,reorder_flag,int64,0,0.0,1,False,0 | 0 | 0
+inventory,60247,17,segment,str,0,0.0,8,False,All-weather | All-weather | All-weather
+inventory,60247,17,sell_through_rate,float64,0,0.0,4017,False,0.25 | 0.25 | 0.25
+inventory,60247,17,snapshot_date,datetime64[us],0,0.0,126,False,2022-10-31 | 2022-11-30 | 2022-12-31
+inventory,60247,17,stock_on_hand,int64,0,0.0,1895,False,3 | 3 | 3
+inventory,60247,17,stockout_days,int64,0,0.0,29,False,2 | 1 | 1
+inventory,60247,17,stockout_flag,int64,0,0.0,2,False,1 | 1 | 1
+inventory,60247,17,units_received,int64,0,0.0,360,False,1 | 1 | 1
+inventory,60247,17,units_sold,int64,0,0.0,303,False,1 | 1 | 1
+inventory,60247,17,year,int64,0,0.0,11,False,2022 | 2022 | 2022
+order_items,714669,7,discount_amount,float64,0,0.0,204449,False,0.0 | 0.0 | 0.0
+order_items,714669,7,order_id,int64,0,0.0,646945,False,1 | 2 | 3
+order_items,714669,7,product_id,int64,0,0.0,1598,False,2400 | 609 | 396
+order_items,714669,7,promo_id,str,438353,61.3365,50,False,PROMO-0006 | PROMO-0006 | PROMO-0006
+order_items,714669,7,promo_id_2,str,714463,99.9712,2,False,PROMO-0015 | PROMO-0015 | PROMO-0015
+order_items,714669,7,quantity,int64,0,0.0,8,False,7 | 7 | 3
+order_items,714669,7,unit_price,float64,0,0.0,501330,False,1138.22 | 10166.25 | 11220.33
+orders,646945,8,customer_id,int64,0,0.0,90246,False,58578 | 58621 | 58811
+orders,646945,8,device_type,str,0,0.0,3,False,desktop | mobile | desktop
+orders,646945,8,order_date,datetime64[us],0,0.0,3833,False,2012-07-04 | 2012-07-04 | 2012-07-04
+orders,646945,8,order_id,int64,0,0.0,646945,True,1 | 2 | 3
+orders,646945,8,order_source,str,0,0.0,6,False,paid_search | paid_search | direct
+orders,646945,8,order_status,str,0,0.0,6,False,delivered | returned | delivered
+orders,646945,8,payment_method,str,0,0.0,5,False,credit_card | cod | credit_card
+orders,646945,8,zip,int64,0,0.0,29932,False,1109 | 1330 | 1473
+payments,646945,4,installments,int64,0,0.0,5,False,3 | 1 | 3
+payments,646945,4,order_id,int64,0,0.0,646945,True,1 | 2 | 3
+payments,646945,4,payment_method,str,0,0.0,5,False,credit_card | cod | credit_card
+payments,646945,4,payment_value,float64,0,0.0,595420,False,7967.54 | 71163.75 | 33660.99
+products,2412,8,category,str,0,0.0,4,False,Streetwear | Streetwear | Streetwear
+products,2412,8,cogs,float64,0,0.0,2381,False,9704.842875 | 5393.87025356962 | 11371.919278263158
+products,2412,8,color,str,0,0.0,10,False,green | silver | pink
+products,2412,8,price,float64,0,0.0,1990,False,11059.65 | 9523.076012658228 | 15951.633157894736
+products,2412,8,product_id,int64,0,0.0,2412,True,536 | 537 | 538
+products,2412,8,product_name,str,0,0.0,2172,False,SaigonFlex UC-01 | SaigonFlex UC-02 | SaigonFlex UC-03
+products,2412,8,segment,str,0,0.0,8,False,Everyday | Everyday | Everyday
+products,2412,8,size,str,0,0.0,4,False,S | M | L
+promotions,50,10,applicable_category,str,40,80.0,2,False,Streetwear | Outdoor | Streetwear
+promotions,50,10,discount_value,float64,0,0.0,6,False,12.0 | 18.0 | 10.0
+promotions,50,10,end_date,datetime64[us],0,0.0,50,True,2013-04-17 | 2013-07-22 | 2013-10-02
+promotions,50,10,min_order_value,int64,0,0.0,5,False,0 | 0 | 0
+promotions,50,10,promo_channel,str,0,0.0,5,False,email | online | email
+promotions,50,10,promo_id,str,0,0.0,50,True,PROMO-0001 | PROMO-0002 | PROMO-0003
+promotions,50,10,promo_name,str,0,0.0,50,True,Spring Sale 2013 | Mid-Year Sale 2013 | Fall Launch 2013
+promotions,50,10,promo_type,str,0,0.0,2,False,percentage | percentage | percentage
+promotions,50,10,stackable_flag,int64,0,0.0,2,False,1 | 0 | 0
+promotions,50,10,start_date,datetime64[us],0,0.0,50,True,2013-03-18 | 2013-06-23 | 2013-08-30
+returns,39939,7,order_id,int64,0,0.0,36062,False,2 | 32 | 35
+returns,39939,7,product_id,int64,0,0.0,1286,False,609 | 1862 | 2359
+returns,39939,7,refund_amount,float64,0,0.0,39560,False,52458.01 | 5141.37 | 5315.95
+returns,39939,7,return_date,datetime64[us],0,0.0,3806,False,2012-07-25 | 2012-07-16 | 2012-07-16
+returns,39939,7,return_id,str,0,0.0,39939,True,RET-000001 | RET-000002 | RET-000003
+returns,39939,7,return_quantity,int64,0,0.0,8,False,6 | 2 | 1
+returns,39939,7,return_reason,str,0,0.0,5,False,late_delivery | wrong_size | wrong_size
+reviews,113551,7,customer_id,int64,0,0.0,48676,False,58578 | 58811 | 49101
+reviews,113551,7,order_id,int64,0,0.0,111369,False,1 | 3 | 10
+reviews,113551,7,product_id,int64,0,0.0,1412,False,2400 | 396 | 1431
+reviews,113551,7,rating,int64,0,0.0,5,False,5 | 5 | 5
+reviews,113551,7,review_date,datetime64[us],0,0.0,3825,False,2012-07-24 | 2012-08-03 | 2012-07-23
+reviews,113551,7,review_id,str,0,0.0,113551,True,REV-0000001 | REV-0000002 | REV-0000003
+reviews,113551,7,review_title,str,0,0.0,18,False,Highly recommend | Very satisfied | Great quality
+sales,3833,3,COGS,float64,0,0.0,3833,True,3982991.19 | 2150580.23 | 2517632.84
+sales,3833,3,Date,datetime64[us],0,0.0,3833,True,2012-07-04 | 2012-07-05 | 2012-07-06
+sales,3833,3,Revenue,float64,0,0.0,3833,True,5123547.94 | 2751773.45 | 3054029.42
+sample_submission,548,3,COGS,float64,0,0.0,548,True,2518885.15 | 1136463.0 | 822721.12
+sample_submission,548,3,Date,datetime64[us],0,0.0,548,True,2023-01-01 | 2023-01-02 | 2023-01-03
+sample_submission,548,3,Revenue,float64,0,0.0,548,True,2665507.2 | 1280007.89 | 1015899.51
+shipments,566067,4,delivery_date,datetime64[us],0,0.0,3831,False,2012-07-11 | 2012-07-10 | 2012-07-07
+shipments,566067,4,order_id,int64,0,0.0,566067,True,1 | 2 | 3
+shipments,566067,4,ship_date,datetime64[us],0,0.0,3831,False,2012-07-07 | 2012-07-06 | 2012-07-04
+shipments,566067,4,shipping_fee,float64,0,0.0,1856,False,1.37 | 2.6 | 2.38
+web_traffic,3652,7,avg_session_duration_sec,float64,0,0.0,1771,False,102.9 | 120.5 | 263.6
+web_traffic,3652,7,bounce_rate,float64,0,0.0,261,False,0.00514 | 0.00406 | 0.00401
+web_traffic,3652,7,date,datetime64[us],0,0.0,3652,True,2013-01-01 | 2013-01-02 | 2013-01-03
+web_traffic,3652,7,page_views,int64,0,0.0,3620,False,39093 | 47611 | 36963
+web_traffic,3652,7,sessions,int64,0,0.0,3447,False,9760 | 10456 | 10076
+web_traffic,3652,7,traffic_source,str,0,0.0,6,False,organic_search | organic_search | direct
+web_traffic,3652,7,unique_visitors,int64,0,0.0,3382,False,7253 | 8151 | 7458

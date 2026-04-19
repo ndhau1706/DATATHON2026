@@ -1,0 +1,15 @@
+table,rows,cols,memory_mb
+products,2412,8,0.71
+customers,121930,7,29.05
+promotions,50,10,0.02
+geography,39948,4,6.86
+orders,646945,8,162.78
+order_items,714669,7,78.0
+payments,646945,4,50.56
+shipments,566067,4,17.28
+returns,39939,7,6.08
+reviews,113551,7,17.76
+inventory,60247,17,16.76
+web_traffic,3652,7,0.38
+sales,3833,3,0.09
+sample_submission,548,3,0.01
