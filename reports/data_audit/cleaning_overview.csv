@@ -2,7 +2,7 @@ table,raw_rows,raw_cols,clean_rows,clean_cols,raw_missing_cells,clean_missing_ce
 customers,121930,7,121930,7,0,0
 geography,39948,4,39948,4,0,0
 inventory,60247,17,60247,17,0,0
-order_items,714669,7,714669,6,1152816,0
+order_items,714669,7,714669,7,1152816,0
 orders,646945,8,646945,8,0,0
 payments,646945,4,646945,4,0,0
 products,2412,8,2412,8,0,0

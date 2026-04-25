@@ -2,15 +2,39 @@ import pandas as pd
 
 
 def add_line_metrics(order_items: pd.DataFrame, products: pd.DataFrame) -> pd.DataFrame:
-    """Them revenue va cogs o muc line item."""
+    """Them cac metric doanh thu, discount, COGS o muc line item."""
     enriched = order_items.merge(
-        products[["product_id", "product_name", "category", "segment", "size", "color", "price", "cogs"]],
+        products[
+            [
+                "product_id",
+                "product_name",
+                "category",
+                "segment",
+                "size",
+                "color",
+                "price",
+                "cogs",
+            ]
+        ],
         on="product_id",
         how="left",
     )
-    enriched["line_revenue"] = enriched["quantity"] * enriched["unit_price"]
+
+    enriched["discount_amount"] = enriched["discount_amount"].fillna(0)
+    enriched["gross_revenue"] = enriched["quantity"] * enriched["unit_price"]
+    enriched["line_revenue"] = enriched["gross_revenue"]
+    enriched["net_revenue_after_discount"] = (
+        enriched["gross_revenue"] - enriched["discount_amount"]
+    )
     enriched["line_cogs"] = enriched["quantity"] * enriched["cogs"]
-    enriched["gross_margin"] = enriched["line_revenue"] - enriched["line_cogs"]
+    enriched["gross_margin_sales_target"] = (
+        enriched["gross_revenue"] - enriched["line_cogs"]
+    )
+    enriched["gross_profit_after_discount"] = (
+        enriched["net_revenue_after_discount"] - enriched["line_cogs"]
+    )
+    enriched["gross_margin"] = enriched["gross_margin_sales_target"]
+
     return enriched
 
 

@@ -1,5 +1,5 @@
 question,metric_value,metric_unit,answer_option,answer_text
-Q1,144.0,days,C,180
+Q1,144.0,days,C,144
 Q2,0.31344174843884803,gross_margin_ratio,D,Standard
 Q3,7626.0,records,B,wrong_size
 Q4,0.0044584356435643565,mean_bounce_rate,C,email_campaign

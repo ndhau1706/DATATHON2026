@@ -1,8 +1,8 @@
 table,column,action,affected_count,details
 customers,signup_date,convert_to_datetime,121930,parse_failures=0
 inventory,snapshot_date,convert_to_datetime,60247,parse_failures=0
-order_items,promo_id_2,drop_column,714669,dropped as requested
 order_items,promo_id,fill_missing,438353,fill_value=None
+order_items,promo_id_2,fill_missing,714463,fill_value=None
 orders,order_date,convert_to_datetime,646945,parse_failures=0
 promotions,end_date,convert_to_datetime,50,parse_failures=0
 promotions,start_date,convert_to_datetime,50,parse_failures=0

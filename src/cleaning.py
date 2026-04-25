@@ -21,13 +21,16 @@ DATE_COLUMNS: dict[str, list[str]] = {
     "sample_submission": ["Date"],
 }
 
-DROP_COLUMNS: dict[str, list[str]] = {
-    "order_items": ["promo_id_2"],
-}
+DROP_COLUMNS: dict[str, list[str]] = {}
 
 FILL_VALUES: dict[str, dict[str, Any]] = {
-    "order_items": {"promo_id": "None"},
-    "promotions": {"applicable_category": "None"},
+    "order_items": {
+        "promo_id": "None",
+        "promo_id_2": "None",
+    },
+    "promotions": {
+        "applicable_category": "None",
+    },
 }
 
 
