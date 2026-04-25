@@ -148,7 +148,8 @@ def solve_mcq(data: dict) -> pd.DataFrame:
     answers.append(["Q4", q4_value, "mean_bounce_rate", q4_opt, q4_text])
 
     # Q5
-    q5_value = float(order_items["promo_id"].notna().mean())
+    q5_mask = order_items["promo_id"].notna() & order_items["promo_id"].astype(str).ne("None")
+    q5_value = float(q5_mask.mean())
     q5_opt, q5_text = _pick_closest_numeric_option("Q5", q5_value)
     answers.append(["Q5", q5_value, "promo_share", q5_opt, q5_text])
 

@@ -1,0 +1,15 @@
+table,raw_rows,raw_cols,clean_rows,clean_cols,raw_missing_cells,clean_missing_cells
+customers,121930,7,121930,7,0,0
+geography,39948,4,39948,4,0,0
+inventory,60247,17,60247,17,0,0
+order_items,714669,7,714669,6,1152816,0
+orders,646945,8,646945,8,0,0
+payments,646945,4,646945,4,0,0
+products,2412,8,2412,8,0,0
+promotions,50,10,50,10,40,0
+returns,39939,7,39939,7,0,0
+reviews,113551,7,113551,7,0,0
+sales,3833,3,3833,3,0,0
+sample_submission,548,3,548,3,0,0
+shipments,566067,4,566067,4,0,0
+web_traffic,3652,7,3652,7,0,0

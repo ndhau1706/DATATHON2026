@@ -1,80 +1,58 @@
+from pathlib import Path
+
 import pandas as pd
-from src.config import MASTER_DIR, TRANSACTION_DIR, OPERATIONAL_DIR, ANALYTICAL_DIR
 
-def load_all_data():
-    data = {
-        # master
-        "products": pd.read_csv(
-            MASTER_DIR / "products.csv",
-            low_memory=False
-        ),
-        "customers": pd.read_csv(
-            MASTER_DIR / "customers.csv",
-            parse_dates=["signup_date"],
-            low_memory=False
-        ),
-        "promotions": pd.read_csv(
-            MASTER_DIR / "promotions.csv",
-            parse_dates=["start_date", "end_date"],
-            low_memory=False
-        ),
-        "geography": pd.read_csv(
-            MASTER_DIR / "geography.csv",
-            low_memory=False
-        ),
+from src.config import ANALYTICAL_DIR, CLEANED_DATA_DIR, MASTER_DIR, OPERATIONAL_DIR, TRANSACTION_DIR
+from src.cleaning import DATE_COLUMNS
 
-        # transaction
-        "orders": pd.read_csv(
-            TRANSACTION_DIR / "orders.csv",
-            parse_dates=["order_date"],
-            low_memory=False
-        ),
-        "order_items": pd.read_csv(
-            TRANSACTION_DIR / "order_items.csv",
-            low_memory=False
-        ),
-        "payments": pd.read_csv(
-            TRANSACTION_DIR / "payments.csv",
-            low_memory=False
-        ),
-        "shipments": pd.read_csv(
-            TRANSACTION_DIR / "shipments.csv",
-            parse_dates=["ship_date", "delivery_date"],
-            low_memory=False
-        ),
-        "returns": pd.read_csv(
-            TRANSACTION_DIR / "returns.csv",
-            parse_dates=["return_date"],
-            low_memory=False
-        ),
-        "reviews": pd.read_csv(
-            TRANSACTION_DIR / "reviews.csv",
-            parse_dates=["review_date"],
-            low_memory=False
-        ),
 
-        # operational
-        "inventory": pd.read_csv(
-            OPERATIONAL_DIR / "inventory.csv",
-            parse_dates=["snapshot_date"],
-            low_memory=False
-        ),
-        "web_traffic": pd.read_csv(
-            OPERATIONAL_DIR / "web_traffic.csv",
-            parse_dates=["date"],
-            low_memory=False
-        ),
+CSV_PATHS = {
+    "products": MASTER_DIR / "products.csv",
+    "customers": MASTER_DIR / "customers.csv",
+    "promotions": MASTER_DIR / "promotions.csv",
+    "geography": MASTER_DIR / "geography.csv",
+    "orders": TRANSACTION_DIR / "orders.csv",
+    "order_items": TRANSACTION_DIR / "order_items.csv",
+    "payments": TRANSACTION_DIR / "payments.csv",
+    "shipments": TRANSACTION_DIR / "shipments.csv",
+    "returns": TRANSACTION_DIR / "returns.csv",
+    "reviews": TRANSACTION_DIR / "reviews.csv",
+    "inventory": OPERATIONAL_DIR / "inventory.csv",
+    "web_traffic": OPERATIONAL_DIR / "web_traffic.csv",
+    "sales": ANALYTICAL_DIR / "sales.csv",
+    "sample_submission": ANALYTICAL_DIR / "sample_submission.csv",
+}
 
-        # analytical
-        "sales": pd.read_csv(
-            ANALYTICAL_DIR / "sales.csv",
-            parse_dates=["Date"],
-            low_memory=False
-        ),
-        "sample_submission": pd.read_csv(
-            ANALYTICAL_DIR / "sample_submission.csv",
-            parse_dates=["Date"],
-            low_memory=False
-        ),
+
+def _read_csv_map(csv_paths: dict[str, Path], keep_default_na: bool = True) -> dict[str, pd.DataFrame]:
+    return {
+        table_name: pd.read_csv(
+            path,
+            parse_dates=DATE_COLUMNS.get(table_name, []),
+            low_memory=False,
+            keep_default_na=keep_default_na,
+        )
+        for table_name, path in csv_paths.items()
     }
+
+
+def load_all_data(clean: bool = False) -> dict[str, pd.DataFrame]:
+    data = _read_csv_map(CSV_PATHS)
+    if clean:
+        from src.cleaning import clean_dataframes
+
+        data, _ = clean_dataframes(data)
     return data
+
+
+def load_clean_data() -> dict[str, pd.DataFrame]:
+    csv_paths = {table_name: CLEANED_DATA_DIR / f"{table_name}.csv" for table_name in CSV_PATHS}
+
+    missing_files = [str(path) for path in csv_paths.values() if not path.exists()]
+    if missing_files:
+        raise FileNotFoundError(
+            "Chua tim thay cleaned data. Hay chay `python -m src.cleaning` truoc. "
+            f"Missing: {missing_files[:3]}"
+        )
+
+    return _read_csv_map(csv_paths, keep_default_na=False)
