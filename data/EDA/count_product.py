@@ -1,0 +1,36 @@
+import pandas as pd
+import numpy as np
+
+# Load datasets
+cus_df = pd.read_csv("customers.csv")
+geo_df = pd.read_csv("geography.csv")
+inven_df = pd.read_csv("inventory.csv")
+orditem_df = pd.read_csv("order_items.csv", low_memory=True)
+ord_df = pd.read_csv("orders.csv")
+pay_df = pd.read_csv("payments.csv")
+pro_df = pd.read_csv("products.csv")
+promo_df = pd.read_csv("promotions.csv")
+re_df = pd.read_csv("returns.csv")
+review_df = pd.read_csv("reviews.csv")
+sale_df = pd.read_csv("sales.csv")
+ship_df = pd.read_csv("shipments.csv")
+web_df = pd.read_csv("web_traffic.csv")
+
+# Merge các bảng
+ord_orditem_df = pd.merge(ord_df, orditem_df, on='order_id', how='left')
+ord_orditem_pro_df = pd.merge(ord_orditem_df, pro_df, on='product_id', how='left')
+ord_orditem_pro_promo_df = pd.merge(ord_orditem_pro_df, promo_df, on='promo_id', how='left')
+
+# Chỉ giữ cột cần thiết
+ord_orditem_pro_promo_df = ord_orditem_pro_promo_df[
+    ['order_date','order_id', 'product_id','product_name',
+     'quantity', 'price','cogs',"discount_amount",
+     'category', 'segment','order_status',
+     'discount_value', 'promo_channel']
+]
+
+summary_df = ord_orditem_pro_promo_df.groupby(
+    ['product_id', 'product_name', 'category', 'segment', 'order_status']
+).size().reset_index(name='order_count')
+summary_df = summary_df.sort_values(by='order_count', ascending=False)
+summary_df.to_csv('product_order_summary.csv', index=False)
